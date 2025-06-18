@@ -76,6 +76,10 @@ docker run -it -d -p 8080:80 --network vllm_nginx \
 
 docker logs nginx-lb
 
+sudo yum install iptables-services -y
+sudo systemctl enable iptables
+sudo systemctl start iptables
 sudo iptables -I INPUT -p tcp --dport 80 -j LOG
 sudo iptables -I INPUT 1 -p tcp -m tcp  --dport 80 -j ACCEPT
 sudo iptables -I INPUT 1 -p tcp -m tcp  --dport 8080 -j ACCEPT
+service iptables save
