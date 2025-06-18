@@ -1,5 +1,14 @@
-
 terraform {
+
+  cloud { 
+    
+    organization = "gc-liamt" 
+
+    workspaces { 
+      name = "ec2-llama-workspace" 
+    } 
+  } 
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
