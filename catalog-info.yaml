@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: llama-vllm-ec2-instance
+  annotations:
+    github.com/project-slug: samgabrail/aws-eks
+  description: AWS EC2 Instance managed by Terraform
+  tags:
+    - aws
+    - ec2
+    - terraform
+spec:
+  type: service
+  lifecycle: experimental
+  owner: guests
