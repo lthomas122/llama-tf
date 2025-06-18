@@ -1,21 +1,17 @@
+
 terraform {
-
   cloud { 
-    
     organization = "gc-liamt" 
-
     workspaces { 
       name = "ec2-llama-workspace" 
     } 
-  } 
-
+  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
   }
-
   required_version = ">= 1.2.0"
 }
 
@@ -101,6 +97,15 @@ resource "aws_vpc_security_group_ingress_rule" "http" {
   to_port     = 80
 }
 
+resource "aws_vpc_security_group_ingress_rule" "http" {
+  security_group_id = aws_security_group.security.id
+
+  cidr_ipv4   = "0.0.0.0/0"
+  from_port   = 8080
+  ip_protocol = "tcp"
+  to_port     = 8080
+}
+
 resource "aws_route_table" "second_rt" {
   vpc_id = aws_vpc.main.id
 
@@ -136,6 +141,6 @@ resource "aws_instance" "app_server" {
   }
 
   tags = {
-    Name = "TerraLlama"
+    Name = var.instance_name
   }
 }
