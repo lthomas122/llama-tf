@@ -3,7 +3,7 @@ kind: Component
 metadata:
   name: llama-vllm-ec2-instance
   annotations:
-    github.com/project-slug: samgabrail/aws-eks
+    github.com/project-slug: lthomas122/llama-tf
   description: AWS EC2 Instance managed by Terraform
   tags:
     - aws
