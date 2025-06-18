@@ -47,4 +47,4 @@ jobs:
     - name: Terraform Validate
       run: terraform validate
     - name: Terraform Destroy
-      run: terraform destroy -var instance-name=${{ github.event.inputs.instanceName }}  -auto-approve
+      run: terraform destroy -var instance_name=${{ github.event.inputs.instanceName }}  -auto-approve
