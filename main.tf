@@ -97,7 +97,7 @@ resource "aws_vpc_security_group_ingress_rule" "http" {
   to_port     = 80
 }
 
-resource "aws_vpc_security_group_ingress_rule" "http" {
+resource "aws_vpc_security_group_ingress_rule" "api" {
   security_group_id = aws_security_group.security.id
 
   cidr_ipv4   = "0.0.0.0/0"
